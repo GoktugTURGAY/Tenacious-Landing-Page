@@ -1,0 +1,17 @@
+// Functions
+
+@function create-tint($color, $percentage) {
+  @return lighten($color, $percentage);
+}
+
+@function create-shade($color, $percentage) {
+  @return darken($color, $percentage);
+}
+
+@function set-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return $dark-color;
+  } @else {
+    @return #fff;
+  }
+}

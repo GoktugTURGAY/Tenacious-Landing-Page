@@ -1,0 +1,760 @@
+@import "defaults";
+@import "variables";
+@import "extends";
+@import "mixins";
+@import "maps";
+@import "functions";
+@import "utilities";
+
+//////////////////////////////////////////////////
+////////////////// NAVIGATION ////////////////////
+//////////////////////////////////////////////////
+.main-nav {
+  padding: 1.5rem;
+  z-index: 1000;
+  @include position(fixed, 0);
+  @include flexAlignDirection(space-between, row);
+  transition: background-color 0.3s ease-in-out;
+
+  &.main-nav--scroll {
+    background-color: rgba(109, 22, 27, 0.9);
+    backdrop-filter: blur(5px);
+  }
+
+  &__container {
+    @include contWidthCenter($container-lg);
+    @include flexAlignDirection(space-between, row);
+    flex: 1;
+    padding: 0 2rem;
+  }
+
+  &__brand-area {
+    @include flexAlignDirection(space-between, row);
+  }
+
+  &__brand {
+    @include flexAlignDirection(center, row);
+    gap: 1rem;
+  }
+
+  &__brand-text {
+    font-size: 2rem;
+    letter-spacing: 0.75px;
+    font-weight: bold;
+  }
+
+  &__list {
+    @include flexAlignDirection(center, row);
+    @include sizeSpace(1.5rem, 0.5px);
+    gap: 3rem;
+    font-weight: bold;
+  }
+
+  &__list-link {
+    transition: color $transition-sm ease-out;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+
+  &__list-link.main-nav__button {
+    @extend %btn-shared;
+    background-color: create-shade($secondary-color, 30%);
+    color: white;
+    padding: 1rem 2rem;
+    transition: all $transition-sm ease;
+
+    &:hover {
+      @extend %btn-hovered;
+      background-color: create-tint($secondary-color, 10%);
+      color: $dark-color;
+    }
+  }
+
+  &__mobile {
+    @extend %btn-shared;
+    @include opacityHeightPointerVisibility(0, 0, none, hidden);
+  }
+
+  &__icon {
+    font-size: 2rem;
+  }
+
+  &__logo {
+    width: 35px;
+  }
+}
+
+//////////////////////////////////////////////////
+///////////////// HERO SECTION ///////////////////
+//////////////////////////////////////////////////
+
+.hero {
+  background-color: $primary-color-dark;
+  padding: 10rem 2rem 5rem;
+  color: set-text-color($primary-color-dark);
+
+  &__container {
+    @include contWidthCenter($container-md);
+    @include flexAlignDirection(space-between, row);
+    gap: 6rem;
+  }
+
+  &__img-wrapper {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30rem;
+      aspect-ratio: 1;
+      z-index: 0;
+      border-radius: 50%;
+      background-color: $secondary-color;
+    }
+  }
+
+  &__img {
+    width: 60rem;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    z-index: 1;
+    position: relative;
+  }
+
+  &__title {
+    @include sizeSpace(4rem, 0.5px);
+    font-weight: 800;
+    line-height: map-get($line-heights, sm);
+    margin-bottom: 2rem;
+  }
+
+  &__description {
+    @include sizeSpace(1.8rem, normal);
+    margin-bottom: 2rem;
+    line-height: map-get($line-heights, lg);
+  }
+
+  &__button {
+    @extend %btn-shared;
+    background-color: create-shade($secondary-color, 10%);
+    color: #000;
+    padding: 1.5rem 2rem;
+    border: 1px solid transparent;
+    transition: all $transition-sm ease-in-out;
+
+    &:hover {
+      @extend %btn-hovered;
+      background-color: $secondary-color;
+    }
+  }
+}
+
+//////////////////////////////////////////////////
+///////////////// MODAL WINDOW ///////////////////
+//////////////////////////////////////////////////
+
+.modal {
+  @include position(fixed, 0);
+  @include flexAlignDirection(start, column);
+  @include opacityHeightPointerVisibility(0, 100vh, none, hidden);
+  z-index: 1700;
+  color: $dark-color;
+  transition: all $transition-sm;
+
+  &.modal--overlay {
+    z-index: 1500;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    transform: translateY(-10rem);
+  }
+
+  &.modal--active {
+    @include opacityHeightPointerVisibility(1, 100vh, all, visible);
+    transform: translateY(0);
+  }
+
+  &__container {
+    @include contWidthCenter($container-md);
+    @include grid--x-cols(1, 2rem);
+    border-radius: 30px;
+    width: 40rem;
+    margin-top: 10rem;
+    padding: 4rem;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.5);
+    background: white;
+    position: relative;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+  }
+
+  &__text {
+    font-size: 1.5rem;
+  }
+
+  &__form {
+    @include grid--x-cols(1, 1rem);
+    &-block {
+      width: 100%;
+    }
+
+    &-input {
+      width: 100%;
+      padding: 1rem 0.5rem;
+      font-family: inherit;
+      font-size: 1.5rem;
+      border: 0;
+      outline: 2px solid create-shade($light-color, 20%);
+
+      &:not(:placeholder-shown):valid {
+        outline-color: green;
+      }
+
+      &:not(:placeholder-shown):invalid {
+        outline-color: red;
+      }
+
+      &::placeholder {
+        color: create-tint($dark-color, 30%);
+      }
+
+      &[type="date"] {
+        outline-color: create-shade($light-color, 20%) !important;
+        color: create-tint($dark-color, 30%);
+      }
+    }
+
+    &-note {
+      @include sizeSpace(1.2rem, 0.2px);
+      color: create-tint($dark-color, 30%);
+      margin: 0.5rem 0 1rem;
+    }
+  }
+
+  &__submit {
+    @extend %btn-shared;
+    background-color: create-shade($primary-color, 30%);
+    color: #fff;
+    padding: 1.2rem 2rem;
+    transition: all $transition-sm;
+
+    &:hover {
+      @extend %btn-hovered;
+      background-color: create-shade($primary-color, 20%);
+      color: #fff;
+    }
+  }
+
+  &__open {
+    @extend %btn-shared;
+    padding: 1.7rem 2.5rem;
+    color: $dark-color;
+    transition: all $transition-sm ease-in-out;
+
+    &:hover {
+      @extend %btn-hovered;
+      background-color: #fff;
+      opacity: 0.9;
+    }
+  }
+
+  &__close {
+    @extend %btn-shared;
+    color: $dark-color;
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    font-size: 4rem;
+    transition: all $transition-sm ease-in-out;
+
+    &:hover {
+      @extend %btn-hovered;
+      background-color: #fff;
+      opacity: 0.9;
+      box-shadow: none;
+      animation: move $transition-sm;
+    }
+  }
+}
+
+//////////////////////////////////////////////////
+//////////////// CONTENT SECTION /////////////////
+//////////////////////////////////////////////////
+.content {
+  &__container {
+    @include contWidthCenter($container-md);
+  }
+
+  &__header {
+    @extend %header;
+  }
+
+  &__title {
+    @extend %title;
+  }
+
+  &__border-bottom {
+    @extend %border-bottom;
+  }
+
+  &__description {
+    @extend %description;
+  }
+
+  &__img {
+    width: 80rem;
+    height: 20rem;
+    object-fit: cover;
+    object-position: center;
+    transition: all $transition-sm ease;
+
+    &-wrapper {
+      overflow: hidden;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__caption {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+  }
+
+  &__items {
+    @include grid--x-cols(4, 1rem);
+    column-gap: 2rem;
+    color: $dark-color;
+  }
+}
+
+//////////////////////////////////////////////////
+/////////////// CHAPTERS SECTION /////////////////
+//////////////////////////////////////////////////
+
+.chapters {
+  color: $dark-color;
+  background-color: create-tint($secondary-color, 10%);
+  padding-bottom: 3rem;
+
+  &__container {
+    @include contWidthCenter($container-md);
+  }
+
+  &__header {
+    @extend %header;
+  }
+
+  &__title {
+    @extend %title;
+  }
+
+  &__border-bottom {
+    @extend %border-bottom;
+  }
+
+  &__description {
+    @extend %description;
+  }
+
+  &__cards {
+    @include grid--x-cols(3, 3rem);
+  }
+
+  &__card {
+    @include flexAlignDirection(center, column);
+    background-color: create-tint($secondary-color, 20%);
+    text-align: center;
+    padding: 3rem;
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1);
+
+    &-img {
+      width: 13rem;
+    }
+
+    &-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 2rem 0 1rem;
+    }
+
+    &-description {
+      font-size: 1.5rem;
+      line-height: map-get($line-heights, xl);
+    }
+  }
+}
+
+//////////////////////////////////////////////////
+/////////////// FEATURED SECTION /////////////////
+//////////////////////////////////////////////////
+
+.featured {
+  &__container {
+    @include contWidthCenter($container-fluid);
+    color: $dark-color;
+  }
+
+  &__header {
+    @extend %header;
+    opacity: 0.6;
+  }
+
+  &__title {
+    @extend %title;
+  }
+
+  &__description {
+    @extend %description;
+  }
+
+  &__partners {
+    @include grid--x-cols(5, 1rem);
+    filter: grayscale(100%) opacity(0.5);
+  }
+
+  &__partner {
+    @include flexAlignDirection(center, row);
+  }
+
+  &__img {
+    width: 15rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+}
+
+//////////////////////////////////////////////////
+///////////////// CTA SECTION ////////////////////
+//////////////////////////////////////////////////
+
+.cta {
+  @include contWidthCenter($container-sm);
+
+  &__container {
+    @include grid--x-cols(2, 4rem);
+    color: $dark-color;
+    padding: 7rem;
+    padding-bottom: 5rem;
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1);
+  }
+
+  &__title {
+    font-size: 3.8rem;
+    margin-bottom: 1rem;
+    line-height: map-get($line-heights, sm);
+  }
+
+  &__description {
+    font-size: 1.6rem;
+  }
+
+  &__form {
+    @include flexAlignDirection(center, column);
+    align-items: stretch;
+
+    &-block {
+      margin-bottom: 1.5rem;
+    }
+
+    &-label {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    &-input {
+      width: 100%;
+      display: inline-block;
+      padding: 1rem;
+      font-family: inherit;
+      font-size: 1.5rem;
+      border: 0;
+
+      outline: 2px solid $secondary-color;
+
+      &:not(:placeholder-shown):valid {
+        outline-color: green;
+      }
+
+      &:not(:placeholder-shown):invalid {
+        outline-color: red;
+      }
+    }
+  }
+
+  &__submit {
+    @extend %btn-shared;
+    padding: 1.4rem 2rem;
+    margin-top: 1.5rem;
+    background-color: $primary-color;
+    color: set-text-color($primary-color);
+    transition: all $transition-sm ease;
+    border-radius: 0;
+
+    &:hover {
+      @extend %btn-hovered;
+    }
+  }
+}
+
+//////////////////////////////////////////////////
+////////////////// MAIN FOOTER ///////////////////
+//////////////////////////////////////////////////
+
+.footer {
+  background-color: $primary-color-dark;
+  color: set-text-color($primary-color-dark);
+
+  &__container {
+    @include contWidthCenter($container-sm);
+    @include flexAlignDirection(space-around, row);
+  }
+
+  &__logo-wrapper {
+    @include flexAlignDirection(start, row);
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  &__logo {
+    height: 3.4rem;
+
+    &-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+
+  &__copyright {
+    @include sizeSpace(1rem, 0.5px);
+  }
+
+  &__address-col {
+    @include flexAlignDirection(center, column);
+    gap: 1rem;
+    font-size: 1rem;
+  }
+
+  &__socials-col {
+    @include flexAlignDirection(center, row);
+    gap: 1.5rem;
+    font-size: 1.5rem;
+    color: $secondary-color;
+  }
+}
+
+//////////////////////////////////////////////////
+///////////////// MEDIA QUERIES //////////////////
+//////////////////////////////////////////////////
+
+@media (max-width: $xl) {
+  .content {
+    &__items {
+      @include grid--x-cols(3, 1rem);
+    }
+
+    &__item {
+      &:nth-child(7),
+      &:nth-child(8) {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: $md) {
+  :root {
+    font-size: 70%;
+  }
+
+  .main-nav {
+    height: 80px;
+
+    &__container {
+      padding: 0;
+    }
+
+    &__brand-area {
+      flex: 1;
+    }
+
+    &__list {
+      @include position(absolute, 80px);
+      @include flexAlignDirection(center, column);
+      @include contWidthCenter($container-md);
+      background-color: create-shade($primary-color-dark, 10%);
+      border-top: 1px solid rgba(255, 255, 255, 0.01);
+      box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
+      transform: translateX(100%);
+      transition: transform $transition-lg ease;
+    }
+
+    &__mobile,
+    &.main-nav--active &__mobile-times {
+      @include opacityHeightPointerVisibility(1, auto, all, visible);
+      color: inherit;
+      background-color: inherit;
+      transition: opacity $transition-sm ease;
+    }
+
+    &__mobile:hover {
+      opacity: 0.8;
+    }
+
+    &__mobile-times,
+    &.main-nav--active &__mobile-bars {
+      @include opacityHeightPointerVisibility(0, 0, none, hidden);
+    }
+
+    &.main-nav--active &__list {
+      transform: translateX(0);
+    }
+
+    &.main-nav--active &__mobile-times {
+      animation: smooth $transition-sm ease;
+    }
+  }
+
+  .hero {
+    padding-top: 12rem;
+
+    &__img {
+      max-width: 35rem;
+    }
+  }
+
+  .content {
+    &__items {
+      @include grid--x-cols(2, 1rem);
+    }
+  }
+
+  .chapters {
+    &__cards {
+      @include grid--x-cols(1, 3rem);
+    }
+
+    &__card {
+      padding: 3rem;
+      margin: 0 5rem;
+    }
+  }
+
+  .footer {
+    &__container {
+      @include flexAlignDirection(space-around, column);
+      text-align: center;
+    }
+
+    &__logo {
+      height: 4rem;
+      &-text {
+        font-size: 2em;
+      }
+    }
+
+    &__copyright {
+      font-size: 1.3rem;
+    }
+
+    &__address-col {
+      margin: 2rem 0;
+      font-size: 1.5rem;
+    }
+  }
+}
+@media (max-width: $sm) {
+  .hero {
+    &__container {
+      gap: 4rem;
+      padding: 0;
+      text-align: center;
+      @include flexAlignDirection(space-between, column);
+    }
+
+    &__title {
+      font-size: 3.5rem;
+    }
+
+    &__img-wrapper {
+      &::before {
+        width: 20rem;
+      }
+    }
+
+    &__img {
+      max-width: 30rem;
+    }
+  }
+
+  .content {
+    &__container {
+      padding-top: 3rem;
+    }
+
+    &__items {
+      @include grid--x-cols(1, 1rem);
+    }
+  }
+
+  .chapters {
+    &__cards {
+      @include grid--x-cols(1, 3rem);
+    }
+
+    &__card {
+      margin: 0;
+    }
+  }
+
+  .featured {
+    &-img {
+      width: 5rem;
+    }
+  }
+
+  .cta {
+    padding-top: 5rem;
+
+    &__container {
+      @include grid--x-cols(1, 1rem);
+      padding: 5rem 3rem;
+
+      margin: 0;
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+    }
+
+    &__title {
+      font-size: 3rem;
+    }
+  }
+}
+
+@keyframes smooth {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes move {
+  50% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(-3deg);
+  }
+}

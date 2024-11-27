@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content=" Immerse yourself in the art of creativity and master the skills to
+  create captivating videos and podcasts that engage and inspire
+  your audience."
+    />
+    <meta name="keywords" content="design, video, podcast, courses" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
+      integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Welcome to Tenacious</title>
+  </head>
+  <body>
+    <header>
+      <nav class="main-nav">
+        <div class="main-nav__container">
+          <div class="main-nav__brand-area">
+            <div class="main-nav__brand">
+              <img
+                src="../images/logo.png"
+                alt="Company logo in a hexagon shape consisting of another small orange hexagon inbetween dark-colored triangles"
+                class="main-nav__logo"
+              />
+              <div class="main-nav__brand-text">Tenacious</div>
+            </div>
+
+            <button class="main-nav__mobile">
+              <div class="main-nav__mobile-times">
+                <i class="fas fa-times fa-2x"></i>
+              </div>
+              <div class="main-nav__mobile-bars">
+                <i class="fas fa-bars fa-2x"></i>
+              </div>
+            </button>
+          </div>
+
+          <ul class="main-nav__list">
+            <li class="main-nav__list-item">
+              <a href="#" class="main-nav__list-link">Home</a>
+            </li>
+            <li class="main-nav__list-item">
+              <a href="#chapters" class="main-nav__list-link">Chapters</a>
+            </li>
+            <li class="main-nav__list-item">
+              <a href="#featured" class="main-nav__list-link">Partners</a>
+            </li>
+            <li class="main-nav__list-item">
+              <a href="#cta" class="main-nav__list-link">CTA</a>
+            </li>
+            <li class="main-nav__list-item">
+              <a
+                href="https://www.facebook.com"
+                class="main-nav__list-link"
+                target="_blank"
+              >
+                <i class="main-nav__icon fa-brands fa-facebook"></i>
+              </a>
+            </li>
+            <li class="main-nav__list-item">
+              <a
+                href="https://www.twitter.com"
+                class="main-nav__list-link"
+                target="_blank"
+              >
+                <i class="main-nav__icon fa-brands fa-twitter"></i>
+              </a>
+            </li>
+            <li class="main-nav__list-item">
+              <a href="#cta" class="main-nav__button main-nav__list-link"
+                >Get Started</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <header class="hero">
+        <div class="hero__container">
+          <div class="hero__content">
+            <h1 class="hero__title">
+              Design Your Own Video and Podcast Courses
+            </h1>
+            <p class="hero__description">
+              Immerse yourself in the art of creativity and master the skills to
+              create captivating videos and podcasts that engage and inspire
+              your audience.
+            </p>
+            <a href="#" class="hero__button">Start Your Journey</a>
+            <button type="button" class="modal__open margin--left-md">
+              Sign Up
+            </button>
+          </div>
+          <div class="hero__img-wrapper">
+            <img
+              src="../images/header-pic.avif"
+              alt="A woman smiling and drinking while working online"
+              class="hero__img"
+            />
+          </div>
+        </div>
+      </header>
+
+      <section class="modal" tabindex="-1" aria-hidden="true">
+        <div class="modal__container">
+          <header class="modal__header">
+            <h2 class="modal__title">Sign Up Now</h2>
+            <p class="modal__text">
+              To get detailed news and keep abreast of new courses and
+              developments, fill the form below.
+            </p>
+            <button type="button" class="modal__close" aria-label="Close modal">
+              &times;
+            </button>
+          </header>
+
+          <form action="#" method="#" class="modal__form">
+            <div class="modal__form-block">
+              <label class="modal__form-label visually-hidden" for="first-name"
+                >First Name</label
+              >
+              <input
+                class="modal__form-input"
+                type="text"
+                id="first-name"
+                name="first-name"
+                placeholder="First name"
+                autocapitalize="words"
+                required
+                aria-label="Enter your first name"
+              />
+            </div>
+
+            <div class="modal__form-block">
+              <label class="modal__form-label visually-hidden" for="last-name"
+                >Last Name</label
+              >
+              <input
+                class="modal__form-input"
+                type="text"
+                id="last-name"
+                name="last-name"
+                placeholder="Last name"
+                autocapitalize="words"
+                required
+                aria-label="Enter your last name"
+              />
+            </div>
+
+            <div class="modal__form-block">
+              <label class="modal__form-label visually-hidden" for="birth-date"
+                >Birth Date</label
+              >
+              <input
+                class="modal__form-input"
+                type="date"
+                id="birth-date"
+                name="birth-date"
+                required
+                aria-label="Enter your birthdate"
+              />
+            </div>
+
+            <div class="modal__form-block">
+              <label class="modal__form-label visually-hidden" for="email"
+                >Email Address</label
+              >
+              <input
+                class="modal__form-input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email Address"
+                required
+                aria-label="Enter your email"
+              />
+            </div>
+
+            <div class="modal__form-block">
+              <label class="modal__form-label visually-hidden" for="password"
+                >Password</label
+              >
+              <input
+                class="modal__form-input"
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                minlength="6"
+                maxlength="15"
+                required
+                aria-label="Enter your password"
+                aria-labelledby="modal__form-note"
+              />
+
+              <p class="modal__form-note" id="modal__form-note">
+                Your password must be between 6 and 15 characters.
+              </p>
+            </div>
+
+            <button class="modal__submit" type="submit">Submit</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="content">
+        <div class="content__container">
+          <header class="content__header">
+            <h2 class="content__title">Cirriculum</h2>
+            <div class="content__border-bottom"></div>
+            <p class="content__description">
+              Begin your learning adventure with our in-depth video courses.
+              Uncover the keys to creating impactful videos and take your skills
+              to the next level.
+            </p>
+          </header>
+
+          <div class="content__items">
+            <figure class="content__item">
+              <div class="content__img-wrapper">
+                <img
+                  src="/images/description-1.jpg"
+                  alt="An image of people at a work meeting"
+                  class="content__img"
+                />
+              </div>
+              <figcaption class="content__caption">
+                Define your desired goals
+              </figcaption>
+            </figure>
+
+            <figure class="content__item">
+              <div class="content__img-wrapper">
+                <img
+                  src="/images/description-2.jpg"
+                  alt="An image of people at a work meeting"
+                  class="content__img"
+                />
+              </div>
+              <figcaption class="content__caption">
+                Find what you are good at
+              </figcaption>
+            </figure>
+
+            <figure class="content__item">
+              <div class="content__img-wrapper">
+                <img
+                  src="/images/description-4.jpg"
+                  alt="An image of people at a work meeting"
+                  class="content__img"
+                />
+              </div>
+              <figcaption class="content__caption">
+                Sketch Creative Goals
+              </figcaption>
+            </figure>
+
+            <figure class="content__item">
+              <div class="content__img-wrapper">
+                <img
+                  src="/images/description-5.jpg"
+                  alt="An image of people at a work meeting"
+                  class="content__img"
+                />
+              </div>
+              <figcaption class="content__caption">
+                Brainstorm marketing ideas
+              </figcaption>
+            </figure>
+
+            <figure class="content__item">
+              <div class="content__img-wrapper">
+                <img
+                  src="/images/description-6.jpg"
+                  alt="An image of people at a work meeting"
+                  class="content__img"
+                />
+              </div>
+              <figcaption class="content__caption">
+                Engage in fruitful conversations
+              </figcaption>
+            </figure>
+
+            <figure class="content__item">
+              <div class="content__img-wrapper">
+                <img
+                  src="/images/description-7.jpg"
+                  alt="An image of people at a work meeting"
+                  class="content__img"
+                />
+              </div>
+              <figcaption class="content__caption">
+                Learn website personalities
+              </figcaption>
+            </figure>
+
+            <figure class="content__item">
+              <div class="content__img-wrapper">
+                <img
+                  src="/images/description-8.jpg"
+                  alt="An image of people at a work meeting"
+                  class="content__img"
+                />
+              </div>
+              <figcaption class="content__caption">
+                Get familiar with accessibility
+              </figcaption>
+            </figure>
+
+            <figure class="content__item">
+              <div class="content__img-wrapper">
+                <img
+                  src="/images/description-9.jpg"
+                  alt="An image of people at a work meeting"
+                  class="content__img"
+                />
+              </div>
+              <figcaption class="content__caption">
+                Learn more about user experience
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapters" id="chapters">
+        <div class="chapters__container">
+          <header class="chapters__header">
+            <h2 class="chapters__title">Main Course Chapters</h2>
+            <div class="chapters__border-bottom"></div>
+            <p class="chapters__description">
+              Begin your learning adventure with our in-depth video courses.
+              Uncover the keys to creating impactful videos and take your skills
+              to the next level.
+            </p>
+          </header>
+
+          <div class="chapters__cards">
+            <figure class="chapters__card">
+              <img
+                class="chapters__card-img"
+                src="/images/chapters-icon-1.svg"
+                alt="A colorful icon"
+              />
+              <h3 class="chapters__card-title">Setting Clear Objectives</h3>
+              <p class="chapters__card-description">
+                Learn how to define clear objectives and goals for your video
+                projects, ensuring focus and direction.
+              </p>
+            </figure>
+
+            <figure class="chapters__card">
+              <img
+                class="chapters__card-img"
+                src="/images/chapters-icon-2.svg"
+                alt="A colorful icon"
+              />
+              <h3 class="chapters__card-title">Content Creation Strategies</h3>
+              <p class="chapters__card-description">
+                Dive into effective content creation strategies that resonate
+                with your audience.
+              </p>
+            </figure>
+
+            <figure class="chapters__card">
+              <img
+                class="chapters__card-img"
+                src="/images/chapters-icon-3.svg"
+                alt="A colorful icon"
+              />
+              <h3 class="chapters__card-title">Coding Essentials</h3>
+              <p class="chapters__card-description">
+                Explore the fundamentals of coding for video projects, including
+                HTML, CSS, and JavaScript.
+              </p>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="featured" id="featured">
+        <div class="featured__container">
+          <header class="featured__header">
+            <h2 class="featured__title">Our Partners</h2>
+            <p class="featured__description">
+              Our courses are taught at many prestigious and well-known
+              institutions such as
+            </p>
+          </header>
+
+          <div class="featured__partners">
+            <figure class="featured__partner">
+              <img
+                src="/images/partner-1.png"
+                alt="Partner Logo"
+                class="featured__img"
+              />
+            </figure>
+
+            <figure class="featured__partner">
+              <img
+                src="/images/partner-2.png"
+                alt="Partner Logo"
+                class="featured__img"
+              />
+            </figure>
+
+            <figure class="featured__partner">
+              <img
+                src="/images/partner-3.jpg"
+                alt="Partner Logo"
+                class="featured__img"
+              />
+            </figure>
+
+            <figure class="featured__partner">
+              <img
+                src="/images/partner-4.png"
+                alt="Partner Logo"
+                class="featured__img"
+              />
+            </figure>
+
+            <figure class="featured__partner">
+              <img
+                src="/images/partner-5.png"
+                alt="Partner Logo"
+                class="featured__img"
+              />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <footer class="cta" id="cta">
+        <div class="cta__container">
+          <header class="cta__header">
+            <h2 class="cta__title">Get your first course for free!</h2>
+            <p class="cta__description">
+              Courses prepared with up-to-date and visual materials are aiding
+              you in your careers. The fine-grained courses are taught by those
+              specialized in their fields, with a finish certificate at the end.
+            </p>
+          </header>
+          <form action="#" method="#" class="cta__form">
+            <div class="cta__form-block">
+              <label for="fullname" class="cta__form-label">Full Name</label>
+              <input
+                class="cta__form-input"
+                type="text"
+                id="fullname"
+                name="fullname"
+                placeholder="John Doe"
+                required
+              />
+            </div>
+
+            <div class="cta__form-block">
+              <label for="email" class="cta__form-label">Email Address</label>
+              <input
+                class="cta__form-input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="john@example.com"
+                required
+              />
+            </div>
+
+            <button type="submit" class="cta__submit">Try for free</button>
+          </form>
+        </div>
+      </footer>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__logo-col">
+          <div class="footer__logo-wrapper">
+            <img
+              src="../images/logo.png"
+              alt="Company logo in a hexagon shape consisting of another small orange hexagon inbetween dark-colored triangles"
+              class="footer__logo"
+            />
+            <div class="footer__logo-text">Tenacious</div>
+          </div>
+          <small class="footer__copyright"
+            >Copyright &copy; <span class="footer__date">2024</span></small
+          >
+        </div>
+        <address class="footer__address-col">
+          <a class="footer__email" href="mailto:example@example.com"
+            >tenacious@gmail.com</a
+          >
+          <a class="footer__tel" href="tel:+5432222222">543 222 22 22</a>
+          <p class="footer__address">Fifth St. Boston, Massachusetts</p>
+        </address>
+        <div class="footer__socials-col">
+          <i class="footer__icon fa-brands fa-facebook fa-2x"></i>
+          <i class="footer__icon fa-brands fa-twitter fa-2x"></i>
+          <i class="footer__icon fa-brands fa-instagram fa-2x"></i>
+          <i class="footer__icon fa-brands fa-linkedin fa-2x"></i>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

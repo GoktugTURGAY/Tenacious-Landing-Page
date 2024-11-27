@@ -1,0 +1,44 @@
+// Mixins
+@mixin contWidthCenter($width) {
+  max-width: $width;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+@mixin flexAlignDirection($horizontal, $direction) {
+  display: flex;
+  justify-content: $horizontal;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin sizeSpace($size, $space) {
+  font-size: $size;
+  letter-spacing: $space;
+}
+
+@mixin grid--x-cols($col-amount, $gap) {
+  display: grid;
+  grid-template-columns: repeat($col-amount, 1fr);
+  gap: $gap;
+}
+
+@mixin position($position, $top) {
+  position: $position;
+  top: $top;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+@mixin opacityHeightPointerVisibility(
+  $opacity,
+  $height,
+  $pointer,
+  $visibility
+) {
+  opacity: $opacity;
+  height: $height;
+  pointer-events: $pointer;
+  visibility: $visibility;
+}

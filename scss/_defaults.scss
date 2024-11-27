@@ -1,0 +1,43 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 80%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+  color: white;
+  overflow-x: hidden;
+}
+
+a,
+button,
+input,
+textarea,
+address {
+  font-family: inherit;
+  display: inline-block;
+  text-decoration: none;
+  font-style: normal;
+}
+
+a {
+  color: white;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
